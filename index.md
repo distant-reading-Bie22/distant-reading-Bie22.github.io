@@ -7,13 +7,10 @@ title: home
 
 ## Welcome!
 
-This is the official page of the workshop **Distant Reading in Literary Studies. An Introduction to Tools for Data Literacy**, which will take place at Bielefeld University in December the 7th, 2022.
+This is the official page of the workshop **Distant Reading in Literary Studies. An Introduction to Tools for Data Literacy**, which will take place at Bielefeld University on December the 7th, 2022.
 
 Here you can find [resources](resources.md) that will allow you to make the most of our workshop, as well as the [program](program.md), and information on the [corpus](corpus.md) we will use in the several exercises and practice sessions that will be the core of the workshop.
 You will also find some recommended readings, which might give you an idea of what Digital Literary Studies are about.
-
-Please also visit [the dedicated page on the Zürich Zentralbibliothek website](
-https://www.zb.uzh.ch/en/events/summer-school-raum-und-affekt-einfuhrung-ins-text-mining-literarischer-texte?date=408) to read the **abstracts of the plenary sessions** and see more details on the events.
 
 ## Get ready
 
