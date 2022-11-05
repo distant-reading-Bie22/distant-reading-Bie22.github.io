@@ -3,8 +3,6 @@ layout: default
 title: home
 ---
 
-![](images/header3.png)
-
 [home](index.md) | [people](people.md) | [corpus](corpus.md) | [resources](resources.md) | [program](program.md)
 
 ## Welcome!
