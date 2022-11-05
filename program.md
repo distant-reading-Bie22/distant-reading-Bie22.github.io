@@ -3,7 +3,7 @@ layout: default
 title: home
 ---
 
-[home](index.md) | [people](people.md) | [corpus](corpus.md) | [resources](resources.md) | [program](program.md)
+[home](index.md) | [people](people.md) | [resources](resources.md) | [program](program.md)
 
 ### Program
 
