@@ -3,13 +3,13 @@ layout: default
 title: home
 ---
 
-[home](index.md) | [people](people.md) | [corpus](corpus.md) | [resources](resources.md) | [program](program.md)
+[home](index.md) | [people](people.md) | [resources](resources.md) | [program](program.md)
 
 ## Welcome!
 
 This is the official page of the workshop **Distant Reading in Literary Studies. An Introduction to Tools for Data Literacy**, which will take place at Bielefeld University on December the 7th, 2022.
 
-Here you can find [resources](resources.md) that will allow you to make the most of our workshop, as well as the [program](program.md), and information on the [corpus](corpus.md) we will use in the several exercises and practice sessions that will be the core of the workshop.
+Here you can find [resources](resources.md) that will allow you to make the most of our workshop, as well as the [program](program.md).
 You will also find some recommended readings, which might give you an idea of what Digital Literary Studies are about.
 
 ## Get ready
