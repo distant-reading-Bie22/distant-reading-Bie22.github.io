@@ -30,5 +30,3 @@ You will find more links in the [resources](resources.md) section.
 ## Help us give you the best experience
 
 The workshop will help you discover the potential of DH tools and approaches, showing you how a corpus of texts can be used to obtain new insights and perspectives on aspects of literature that are otherwise difficult to identify and examine, with a particular focus on the analysis of literary affect and space.
-
-**Please remember to fill the [participants' survey](https://forms.gle/hNS1e9JupoZkgmyu7) by June 1st**, which will allow us to customise the workshop based on the participants' experiences and interests.
