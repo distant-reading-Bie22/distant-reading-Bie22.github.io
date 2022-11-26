@@ -9,11 +9,6 @@
 # ...and press Ctrl+Enter (or Cmd+Enter for Mac)
 # (the command will be automatically copy/pasted into the console)
 
-# Install the packages (necessary for stylometry and networks)
-install.packages("networkD3")
-install.packages("stylo")
-# ...you'll have to do it just once
-
 # Call the packages
 library(networkD3)
 library(stylo)
@@ -21,10 +16,6 @@ library(stylo)
 
 # Important note:
 # Stylo will work by default with the files in the "corpus" folder
-
-# see the metadata (i.e. full info on the texts we'll be analyzing)
-df <- read.csv("metadata.csv")
-View(df)
 
 # First analysis (dendrogram with 100 MFW)
 stylo(corpus.format="plain",
@@ -37,6 +28,45 @@ stylo(corpus.format="plain",
       write.jpg.file=T,
       plot.custom.height=16,
       plot.custom.width=9)
+
+# Second analysis (dendrogram with 2000 MFW)
+stylo(corpus.format="plain",
+      corpus.lang="German", 
+      mfw.min=2000, 
+      mfw.max=2000,
+      mfw.incr=0,
+      distance.measure="dist.delta",
+      analysis.type="CA",
+      write.jpg.file=T,
+      plot.custom.height=16,
+      plot.custom.width=9,
+      frequencies="table_with_frequencies.txt")
+# here files are not actually read from the "corpus" folder
+# as word frequencies are already provided in "table_with_frequencies.txt" file
+
+# Third analysis (Consensus tree with 200-2000 MFW and Cosine Delta distance)
+stylo(corpus.format="plain",
+      corpus.lang="German", 
+      mfw.min=200, 
+      mfw.max=2000,
+      mfw.incr=200,
+      distance.measure="dist.wurzburg",
+      analysis.type="BCT",
+      write.jpg.file=T,
+      plot.custom.height=16,
+      plot.custom.width=16,
+      frequencies="table_with_frequencies.txt")
+
+# Fourth analysis (network)
+stylo.network(corpus.format="plain",
+              corpus.lang="German", 
+              mfw.min=200, 
+              mfw.max=2000,
+              mfw.incr=200,
+              distance.measure="dist.wurzburg",
+              frequencies="table_with_frequencies.txt")
+
+# Appendix
 
 # Here is an overview of the options to put between the brackets
 # 
@@ -102,40 +132,10 @@ stylo(corpus.format="plain",
 # Much more details are available here: https://github.com/computationalstylistics/stylo_howto/blob/master/stylo_howto.pdf
 # Note that if you will install Rstudio in your laptop, stylo will also have a graphical interface to set up these features
 
-# Second analysis (dendrogram with 200 MFW)
-stylo(corpus.format="plain",
-      corpus.lang="German", 
-      mfw.min=200, 
-      mfw.max=200,
-      mfw.incr=0,
-      distance.measure="dist.delta",
-      analysis.type="CA",
-      write.jpg.file=T,
-      plot.custom.height=16,
-      plot.custom.width=9,
-      frequencies="table_with_frequencies.txt")
-# here files are not actually read from the "corpus" folder
-# as word frequencies are already provided in "table_with_frequencies.txt" file
+################
+### Your turn!!
+#############
 
-# Third analysis (Consensus tree with 2000 MFW and Cosine Delta distance)
-stylo(corpus.format="plain",
-      corpus.lang="German", 
-      mfw.min=200, 
-      mfw.max=2000,
-      mfw.incr=200,
-      distance.measure="dist.wurzburg",
-      analysis.type="BCT",
-      write.jpg.file=T,
-      plot.custom.height=16,
-      plot.custom.width=16,
-      frequencies="table_with_frequencies.txt")
-
-# Fourth analysis (network)
-stylo.network(corpus.format="plain",
-              corpus.lang="German", 
-              mfw.min=200, 
-              mfw.max=2000,
-              mfw.incr=200,
-              distance.measure="dist.wurzburg",
-              frequencies="table_with_frequencies.txt")
+# create a consensus tree with very low selections of MFW (e.g. from 10 to 100)
+# suggestion: just copy-paste here below lines 48-58 and modify them a bit
 
