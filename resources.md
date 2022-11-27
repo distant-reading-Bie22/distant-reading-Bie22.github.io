@@ -7,7 +7,7 @@ title: resources
 
 ## Resources
 
-- [Github cloning link](https://github.com/distant-reading-Bie22.github.io.git)
+- [Github cloning link](https://github.com/distant-reading-Bie22/distant-reading-Bie22.github.io.git)
 
 ### Books
 - Egbert, J., Biber, D., & Gray, B. (2022). _Designing and Evaluating Language Corpora: A Practical Framework for Corpus Representativeness._ Cambridge: Cambridge University Press. doi:10.1017/9781316584880
