@@ -10,14 +10,13 @@
 # (the command will be automatically copy/pasted into the console)
 
 # Call the packages
-library(networkD3)
 library(stylo)
 # ...you'll have to do it each time you re-start the project
 
 # Important note:
 # Stylo will work by default with the files in the "corpus" folder
 
-# First analysis (dendrogram with 100 MFW)
+# First analysis (authorship attribution)
 stylo(corpus.format="plain",
       corpus.lang="German", 
       mfw.min=100, 
@@ -28,43 +27,38 @@ stylo(corpus.format="plain",
       write.jpg.file=T,
       plot.custom.height=16,
       plot.custom.width=9)
+# for an explanation of this command, see the appendix below
 
-# Second analysis (dendrogram with 2000 MFW)
+# note that the analysis has generated a few files, including a table w/ frequencies
+processed_texts <- read.csv("table_with_frequencies.txt", sep = " ")
+
+# let's take a look
+View(processed_texts)
+
+# we can isolate the gender information from the metadata
+metadata <- read.csv("metadata.csv")
+View(metadata)
+table(metadata$gender.cat)
+
+# ...and use it to change the names of the texts
+colnames(processed_texts) <- paste(metadata$gender.cat, colnames(processed_texts), sep = "_")
+processed_texts <- processed_texts[,order(colnames(processed_texts))]
+write.table(processed_texts, "gender_table_with_frequencies.txt", sep = " ")
+
+# Second analysis (gender)
 stylo(corpus.format="plain",
       corpus.lang="German", 
-      mfw.min=2000, 
-      mfw.max=2000,
+      mfw.min=100, 
+      mfw.max=100,
       mfw.incr=0,
       distance.measure="dist.delta",
       analysis.type="CA",
       write.jpg.file=T,
       plot.custom.height=16,
       plot.custom.width=9,
-      frequencies="table_with_frequencies.txt")
+      frequencies="gender_table_with_frequencies.txt")
 # here files are not actually read from the "corpus" folder
-# as word frequencies are already provided in "table_with_frequencies.txt" file
-
-# Third analysis (Consensus tree with 200-2000 MFW and Cosine Delta distance)
-stylo(corpus.format="plain",
-      corpus.lang="German", 
-      mfw.min=200, 
-      mfw.max=2000,
-      mfw.incr=200,
-      distance.measure="dist.wurzburg",
-      analysis.type="BCT",
-      write.jpg.file=T,
-      plot.custom.height=16,
-      plot.custom.width=16,
-      frequencies="table_with_frequencies.txt")
-
-# Fourth analysis (network)
-stylo.network(corpus.format="plain",
-              corpus.lang="German", 
-              mfw.min=200, 
-              mfw.max=2000,
-              mfw.incr=200,
-              distance.measure="dist.wurzburg",
-              frequencies="table_with_frequencies.txt")
+# as word frequencies are already provided in "gender_table_with_frequencies.txt" file
 
 # Appendix
 
@@ -136,6 +130,15 @@ stylo.network(corpus.format="plain",
 ### Your turn!!
 #############
 
-# create a consensus tree with very low selections of MFW (e.g. from 10 to 100)
-# suggestion: just copy-paste here below lines 48-58 and modify them a bit
+# Option 1
+# repeat the analysis with different features
+# do you get any distinction in term of gender?
+# suggestion: just copy-paste here below lines 49-59 and modify them a bit
+
+
+
+# Option 2
+# try to extract another information from the metadata, such as the period
+# and repeat the analysis by looking at it instead of gender
+# suggestion: just copy-paste here below lines 32-59 and modify them a bit
 
