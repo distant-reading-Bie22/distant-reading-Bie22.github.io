@@ -181,5 +181,27 @@ quanteda_texts_dfm %>%
 
 # or look at how a specific term is used over time
 
+quanteda_texts_dfm %>% 
+  textstat_frequency(groups = as.numeric(year)) %>% 
+  filter(feature == "berg") %>%
+  ggplot(aes(x = group, y = frequency, label=feature)) +
+  geom_col(width = .1) +
+  geom_point(size = 1) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 7)
+  ) +
+  # geom_text() +
+  xlab("frequency of the word 'berg' in the corpus over the years")
 
 
+quanteda_texts_dfm %>% 
+  textstat_frequency(groups = author.name) %>% 
+  filter(feature == "berg") %>%
+  ggplot(aes(x = group, y = frequency, label=feature)) +
+  geom_col(width = .1) +
+  geom_point(size = 1) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 7)
+  ) +
+  # geom_text() +
+  xlab("frequency of the word 'berg' in the corpus by author")
