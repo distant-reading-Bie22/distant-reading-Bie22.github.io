@@ -9,8 +9,17 @@ title: home
 
 | Day       | Time | What                                     |
 |:----------|:-----------|:-----------------------------------------|
-| December 7th | 10:00-10:30 | Introduction. **What we can do with distant reading** |
-| | 10:30-13:00 | "Basic" corpus approaches |
+| December 7th | Morning | **What can we do with distant reading?** |
+| | 10:00-10:15 | Introduction |
+| | 10:15-10:35 | Why Distant Reading? |
+| | 10:35-10:45 | Mini break + discussion |
+| | 10:45-13:00 | Approaching a corpus |
+| | | Frequencies/word clouds |
+| | | Keyword analysis |
 | | 13:00-14:00 | *Lunch break* |
-| | 14:00-15:30 | Hands on. **From research question to data interpretation** |
-| | 15:30-16:00 | Discussion |
+| | Afternoon | **From research question to data interpretation**  |
+| | 14:00-15:15 | Two examples |
+| | | Style |
+| | | Sentiment |
+| | 15:15-15:45 | Discussion |
+| | 15:45-16:00 | Evaluation |
