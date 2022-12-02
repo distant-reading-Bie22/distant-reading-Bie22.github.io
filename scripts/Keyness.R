@@ -24,15 +24,15 @@ View(metadata)
 my_author <- "Arnim, Bettina von"
 
 # load the tokenized texts
-load("resources/Quanteda_texts.RData")
+load("resources/quanteda_texts_tokens_gg.Rdata")
 
 # separate target and reference corpus
-my_selection <- rep("Other", length(quanteda_texts))
+my_selection <- rep("Other", length(quanteda_texts_tok))
 my_selection[which(metadata$author.name == my_author)] <- "My author"
-quanteda_texts <- tokens_group(quanteda_texts, groups = my_selection)
+quanteda_texts_tok <- tokens_group(quanteda_texts_tok, groups = my_selection)
 
 # transform the corpus into a document-feature matrix
-document_feature_matrix <- dfm(quanteda_texts)
+document_feature_matrix <- dfm(quanteda_texts_tok)
 # note that the "grouping" is based on the names of the corpus, i.e. "My author" and "Others"
 
 # calculate the keyness for each word
@@ -47,35 +47,6 @@ textplot_keyness(keyness_results, n = 20)
 ### Your turn!!
 #############
 
-# define the name of the author on which we want to work
-my_author <- "..."
-
-# (re-)load the tokenized texts
-load("resources/Quanteda_texts.RData")
-
-# separate target and reference corpus
-my_selection <- rep("Other", length(quanteda_texts))
-my_selection[which(metadata$author.name == my_author)] <- "My author"
-quanteda_texts <- tokens_group(quanteda_texts, groups = my_selection)
-
-# transform the corpus into a document-feature matrix
-document_feature_matrix <- dfm(quanteda_texts)
-# note that the "grouping" is based on the names of the corpus, i.e. "My author" and "Others"
-
-# calculate the keyness for each word
-# choosing as a target the documents with the "My author" name
-# and using as a measure the "log-likelihood ratio" method ("lr")
-keyness_results <- textstat_keyness(document_feature_matrix, target = "My author", measure = "lr")
-
-# plot the results!
-textplot_keyness(keyness_results, n = 20)
-
-# Appendix
-
-# here are the scripts to create the tokenized texts
-# do not work on Posit Cloud (free): not enough RAM!
-
-# my_texts <- lapply(metadata$filename, readLines)
-# my_texts <- sapply(my_texts, function(x) paste(x, collapse = "\n"))
-# names(my_texts) <- metadata$filename
-# quanteda_texts <- tokens(my_texts, remove_punct = T)
+# run the same analysis on a different author
+# tip: you will have just to change the name of the author in line 24
+# and then re-run the script from the beginning
