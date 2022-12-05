@@ -9,6 +9,11 @@
 # ...and press Ctrl+Enter (or Cmd+Enter for Mac)
 # (the command will be automatically copy/pasted into the console)
 
+# Important note:
+# If your RAM in Posit Cloud is full (red icon on the top right)
+# Click on "Session" -> "Clear Workspace"
+# ...and then "Session" -> "Restart R"
+
 # call the packages
 library(quanteda)
 library(quanteda.textstats)
