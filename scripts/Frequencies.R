@@ -128,7 +128,7 @@ textplot_wordcloud(quanteda_texts_dfm, max_words = 100)
 
 # better, right?
 
-# another thing we can do is to visualize group differences in freuqencis,
+# another thing we can do is to visualize group differences in frequency,
 # for instance, we might want to see which words are the most frequently used by women vs men authors.
 
 quanteda_texts_dfm %>% 
@@ -139,6 +139,11 @@ quanteda_texts_dfm %>%
   labs(x = NULL, y = "Frequency") +
   theme_minimal()
 
+
+## or look at single words comparisons:
+
+sorted_features <- topfeatures(quanteda_texts_dfm, n = nfeat(quanteda_texts_dfm))
+sorted_features[c("mädchen", "junge", "frau", "mann")]
 
 # Stats ---------------
 
