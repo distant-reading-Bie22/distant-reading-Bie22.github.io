@@ -28,7 +28,7 @@ load("resources/Zeta_corpus.RData")
 
 # separate based on target author
 primary_set <- texts_list[which(metadata$author.name == my_author)]
-secondary_set <- texts_list[which(metadata$gender.cat != my_author)]
+secondary_set <- texts_list[which(metadata$author.name != my_author)]
 
 # reduce to just reference corpus to just 20 texts
 # (necessary to avoid RAM issues!)
