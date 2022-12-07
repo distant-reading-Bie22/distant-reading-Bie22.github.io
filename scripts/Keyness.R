@@ -53,5 +53,5 @@ textplot_keyness(keyness_results, n = 20)
 #############
 
 # run the same analysis on a different author
-# tip: you will have just to change the name of the author in line 24
+# tip: you will have just to change the name of the author in line 29
 # and then re-run the script from the beginning
