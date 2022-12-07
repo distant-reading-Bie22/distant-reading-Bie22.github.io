@@ -4,6 +4,7 @@ library(readxl)
 library(tidytext)
 library(readtext)
 library(sjPlot)
+library(report)
 
 # what if we wanted to see how gender plays a role in our corpus?
 
@@ -87,8 +88,14 @@ corpus %>%
   filter(!is.na(sentiment)) %>%
   ggplot(aes(x=sentiment, y=polarity, fill=author_gender)) +
   geom_boxplot(position = "dodge") +
-  ggpubr::stat_compare_means() +
+  # ggpubr::stat_compare_means() +
   ylim(-1,1.2)
+
+report::report(wilcox.test(corpus$polarity ~ corpus$author_gender))
+
+report::report(wilcox.test(corpus$polarity[corpus$sentiment == "pos"] ~ corpus$author_gender[corpus$sentiment == "pos"]))
+report::report(wilcox.test(corpus$polarity[corpus$sentiment == "neg"] ~ corpus$author_gender[corpus$sentiment == "neg"]))
+
 
 # if we want to have a better "comparing" view, we can flip the negatives up
 
@@ -98,7 +105,7 @@ corpus %>%
   filter(!is.na(sentiment)) %>%
   ggplot(aes(x=sentiment, y=polarity, fill=author_gender)) +
   geom_boxplot(position = "dodge") +
-  ggpubr::stat_compare_means() +
+  # ggpubr::stat_compare_means() +
   ylim(0,1.2)
 
 
@@ -218,21 +225,21 @@ remove(german_names)
 # we can plot a count of sentiment words by represented gender
 
 corpus_sentences %>%
-  group_by(gender_type, sentiment) %>%
+  ungroup() %>%
+  mutate(polarity = ifelse(sentiment == "neg", -polarity, polarity)) %>%
   filter(!is.na(gender_type)) %>%
-  summarise(sentiment_count = n()) %>%
-  mutate(gendered_sent_total = case_when(
-    gender_type == "f" ~ nrow(corpus_gender[corpus_gender$gender_type == "f",]),
-    gender_type == "m" ~ nrow(corpus_gender[corpus_gender$gender_type == "m",])
-  )) %>%
-  mutate(sentiment_prop = (sentiment_count*100)/gendered_sent_total) %>%
   filter(!is.na(sentiment)) %>%
-  ggplot(aes(y=sentiment_prop, sentiment, fill=gender_type)) +
-  geom_col(position="dodge") +
+  ggplot(aes(y=polarity, sentiment, fill=gender_type)) +
+  geom_boxplot(position="dodge")
   # geom_text(nudge_y = -.04)
   # facet_wrap(. ~ sentiment) +
-  ggtitle("proportional count of sentiment words in sentences with gendered words")
+  # ggtitle("proportional count of sentiment words in sentences with gendered words")
 
+
+report::report(wilcox.test(corpus_sentences$polarity ~ corpus_sentences$author_gender))
+
+report::report(wilcox.test(corpus_sentences$polarity[corpus_sentences$sentiment == "pos"] ~ corpus_sentences$author_gender[corpus_sentences$sentiment == "pos"]))
+report::report(wilcox.test(corpus_sentences$polarity[corpus_sentences$sentiment == "neg"] ~ corpus_sentences$author_gender[corpus_sentences$sentiment == "neg"]))
 
 # schematic representations
 
