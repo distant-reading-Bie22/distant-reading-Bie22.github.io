@@ -14,7 +14,8 @@
 # Click on "Session" -> "Clear Workspace"
 # ...and then "Session" -> "Restart R"
 
-# call the library
+# call the libraries
+library(quanteda)
 library(stylo)
 
 # read the metadata
@@ -32,7 +33,7 @@ texts_list <- lapply(texts_list, tolower)
 
 # separate based on target author
 primary_set <- texts_list[which(metadata$author.name == my_author)]
-secondary_set <- texts_list[which(metadata$gender.cat != my_author)]
+secondary_set <- texts_list[which(metadata$author.name != my_author)]
 
 # reduce to just reference corpus to just 20 texts
 # (necessary to avoid RAM issues!)
@@ -47,5 +48,5 @@ oppose(primary.corpus = primary_set, secondary.corpus = secondary_set)
 #############
 
 # run the same analysis on a different author
-# tip: you will have just to change the name of the author in line 19
+# tip: you will have just to change the name of the author in line 25
 # and then re-run the script from the beginning
