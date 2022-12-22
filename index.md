@@ -7,7 +7,7 @@ title: home
 
 ## Welcome!
 
-This is the official page of the workshop **Distant Reading in Literary Studies. An Introduction to Tools for Data Literacy**, which will take place at Bielefeld University on December the 7th, 2022.
+This is the official page of the workshop **Distant Reading in Literary Studies. An Introduction to Tools for Data Literacy**, which will take place at Bielefeld University on December the 7th, 2022. The workshop is organised by the BiLinked Communities of Practice ["Data Literacy"](https://www.uni-bielefeld.de/themen/bilinked/communities-of-practice/data-literacy/) and ["Open Humanities"](https://www.uni-bielefeld.de/themen/bilinked/communities-of-practice/public-humanities/).
 
 Here you can find [resources](resources.md) that will allow you to make the most of our workshop, as well as the [program](program.md).
 You will also find some recommended readings, which might give you an idea of what Digital Literary Studies are about.
